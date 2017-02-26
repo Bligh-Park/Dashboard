@@ -45,7 +45,6 @@
       $dbpass="";
       $dbserver="localhost";
 
-      echo "Conncting Database";
     // Make a MySQL Connection
       $con = mysqli_connect($dbserver, $dbuser, $dbpass) or die(mysql_error());
       mysqli_select_db($con, $dbname) or die(mysql_error());
