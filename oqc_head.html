@@ -1,0 +1,133 @@
+  <!-- google chart -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart', 'bar']});
+
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(WorldSalesChart);
+
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(DevationChart);
+
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawDiv1Chart);
+
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawDiv2Chart);
+
+      // Callback that draws the column chart for PBA defect
+      function WorldSalesChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Sales'],
+          ['Germany', 5400],
+          ['United States', 8000],
+          ['Brazil', 3000],
+          ['Canada', 7000],
+          ['France', 4000],
+          ['Russia', 7000],
+          ['China', 1000],
+          ['South Korea', 7000]
+          ]);
+
+        var options = {
+          title: 'World Sales'
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('WorldSales_Chart'));
+
+        chart.draw(data, options);
+
+      }
+
+      // Callback that draws the pie chart for Devation Rate.
+      function DevationChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['ID',   'Sales',      'AR',     'Sales Region',   'Defects'],
+          ['SAMEX',   50000,     1.23,      'America',  4000],
+          ['SEDA',    40000,     1.56,      'America',  3000],
+          ['SEHC',    3000,      2.4,      'Asia',      2000],
+          ['TSEC',    35000,     0.8,      'Asia',    3400],
+          ['SERK',    37000,     2.5,         'Europe',  3400],
+          ['SEH',     25000,     1.7,       'Europe',    1200],
+          ['SESK',    32000,     2.77,      'Europe',    1500],
+          ['SIEL-C',  15000,     0.67,      'Asia',    4300],
+          ['SIEL-N',  26000,     0.87,      'Asia',     3000],
+          ['SEEG',    17000,     0.25,      'Africa',  1500]
+          ]);
+
+        var options = {
+          title: 'Correlation between AR, Sales and ' +
+          'defect from the markets(2010)',
+          hAxis: {title: 'Sales'},
+          vAxis: {title: 'AR'},
+          bubble: {textStyle: {fontSize: 11}},
+          width:650,
+          height:300
+        };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('Devation_div'));
+        chart.draw(data, options);
+
+      }
+
+      // Callback that draws the line chart for Plant A.
+      function drawDiv1Chart() {
+
+        // Create the data table for AR of Plant A.
+        var data = new google.visualization.arrayToDataTable([
+          ['Year', 'SAMEX', 'SEDA', 'SERK', 'SESK', 'SEH'],
+          ['W1',  1.3,      2.3,      3.2,   2.5,  1.6],
+          ['W2',  1.2,      3.2,      2.5,   2.1,  1.2],
+          ['W3',  0.8,      2.7,      1.6,   1.7,  1.0],
+          ['W4',  2.3,      3.2,      2.4,   2.4,  0.8],
+          ['W5',  0.8,      2.7,      1.6,   1.7,  1.0],
+          ['W6',  1.2,      3.2,      2.5,   2.1,  1.2],
+          ['W7',  1.3,      2.3,      3.2,   2.5,  1.6]
+          ]);
+
+        // Set options for Plant A.
+        var options = {title:'AR Trent Plant A',
+        curveType: 'function',
+        width:650,
+        height:300
+      };
+
+        // Instantiate and draw the chart for Plant A.
+        var chart = new google.visualization.LineChart(document.getElementById('div1'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the line chart for Plant B.
+      function drawDiv2Chart() {
+
+        // Create the data table for Production defect of Plant B.
+        var data = new google.visualization.arrayToDataTable([
+          ['Year', 'SEEG', 'SIEL-C', 'SIEL-N', 'SSAP', 'SEHC'],
+          ['W1',  1.3,      2.3,      3.2,   2.5,  1.6],
+          ['W2',  1.2,      3.2,      2.5,   2.1,  1.2],
+          ['W3',  0.8,      2.7,      1.6,   1.7,  1.0],
+          ['W4',  2.3,      3.2,      2.4,   2.4,  0.8],
+          ['W5',  1.2,      3.2,      2.5,   2.1,  1.2],
+          ['W6',  1.3,      2.3,      3.2,   2.5,  1.6],
+          ['W7',  0.8,      2.7,      1.6,   1.7,  1.0]
+          ]);
+
+
+        // Set options for Plant B.
+        var options = {title:'AR Trent Plant B',
+        curveType: 'function',
+        width:650,
+        height:300};
+
+        // Instantiate and draw the chart for Plant B.
+        var chart = new google.visualization.LineChart(document.getElementById('div2'));
+        chart.draw(data, options);
+      }
+
+
+
+    </script> 
